@@ -1,0 +1,127 @@
+main {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+section.card {
+  max-width: 95%;
+  width: 767px;
+  margin: 4rem auto;
+  box-sizing: border-box;
+  color: var(--text);
+}
+
+section.card a,
+section.card a:visited {
+  color: var(--text);
+  text-decoration: none;
+}
+
+section.card a:hover {
+  text-decoration: underline;
+}
+
+.card img {
+  width: 767px;
+  max-width: 100%;
+}
+
+.card h1 {
+  font-size: 19px;
+  margin: 10px 0 3px;
+}
+
+p.date {
+  margin: 1.5rem 0;
+  font-weight: 700;
+}
+
+p.description {
+  overflow: hidden;
+  height: 3.75rem;
+  position: relative;
+  opacity: 0.75;
+}
+p.description::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2rem;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, var(--bg) 100%);
+}
+
+a.button-link {
+  display: block;
+  margin: 0.5rem 0;
+  padding: 0;
+}
+button.tickets {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem;
+  margin: 0;
+  width: 100%;
+  font-size: 1rem;
+  color: var(--bg);
+  background-color: var(--button);
+}
+
+@media (min-width: 768px) {
+  section.card {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .card img {
+    width: 320px;
+    max-width: 320px;
+  }
+
+  .card .info {
+    flex: 1;
+    margin: 0 0 0 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .card h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  p.date {
+    margin: 0.5rem 0;
+    align-self: flex-end;
+    text-align: right;
+  }
+
+  p.date span {
+    display: block;
+  }
+  button.tickets {
+    width: 150px;
+  }
+  a.button-link {
+    align-self: flex-end;
+  }
+
+  .details {
+    display: flex;
+    justify-content: space-between;
+  }
+  .title-description {
+    padding-right: 2rem;
+  }
+  .date-tickets {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}
