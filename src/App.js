@@ -1,9 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
 import List from "./components/list";
@@ -17,7 +12,6 @@ function App() {
           <Route exact path="/:username/:bg" component={List} />
           <Route exact path="/:username/:bg/:text" component={List} />
           <Route exact path="/:username/:bg/:text/:button" component={List} />
-          {/* <Redirect to="/" component={NoParams} /> */}
         </Switch>
       </Router>
     </div>
