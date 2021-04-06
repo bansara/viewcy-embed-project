@@ -19,9 +19,19 @@ const List = () => {
     }
 
     if (bg !== undefined && isValidHexCode(bg)) {
+      let r = parseInt(bg.slice(0, 2), 16);
+      let g = parseInt(bg.slice(2, 4), 16);
+      let b = parseInt(bg.slice(4), 16);
+
+      console.log(r, g, b);
+
       document.documentElement.style.setProperty(
         "--bg",
-        `#${bg.toLowerCase()}`
+        `rgba(${r},${g},${b},1)`
+      );
+      document.documentElement.style.setProperty(
+        "--transBg",
+        `rgba(${r},${g},${b},0)`
       );
     }
 
@@ -41,7 +51,7 @@ const List = () => {
 
     getApiData();
   }, [username, bg, text, button]);
-  console.log(bg, text, button);
+
   return (
     <main>
       {!!data.length && data.map((obj) => <Card obj={obj} key={obj.id} />)}

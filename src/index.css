@@ -1,5 +1,6 @@
 :root {
   --bg: white;
+  --transBg: rgba(255, 255, 255, 0);
   --text: black;
   --button: rgb(196, 44, 84);
 }
