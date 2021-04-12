@@ -5,10 +5,16 @@
   --button: rgb(196, 44, 84);
 }
 
+@font-face {
+  font-family: "Averta";
+  src: local("Averta") format("opentype");
+  font-weight: 100 900;
+}
+
 body {
   margin: 0;
-  font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: "Averta", -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

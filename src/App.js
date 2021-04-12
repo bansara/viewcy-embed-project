@@ -1,7 +1,13 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import "./App.css";
 
 import List from "./components/list";
+import Home from "./components/home";
 
 function App() {
   return (
@@ -12,6 +18,8 @@ function App() {
           <Route exact path="/:username/:bg" component={List} />
           <Route exact path="/:username/:bg/:text" component={List} />
           <Route exact path="/:username/:bg/:text/:button" component={List} />
+          <Route path="/" component={Home} />
+          <Redirect to="/" />
         </Switch>
       </Router>
     </div>
