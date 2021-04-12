@@ -1,4 +1,4 @@
-import { useState, useRef, useLayoutEffect } from "react";
+import { useState, useRef, useLayoutEffect, useEffect } from "react";
 import "./home.css";
 import { isValidHexCode, removePrefix, isValidUsername } from "../utils/isHex";
 import PopUp from "./popup";
@@ -6,11 +6,11 @@ import PopUp from "./popup";
 const Home = () => {
   const [organization, setOrganization] = useState("");
   const [organizationErr, setOrganizationErr] = useState("");
-  const [bg, setBg] = useState("");
+  const [bg, setBg] = useState("ffffff");
   const [bgErr, setBgErr] = useState("");
-  const [text, setText] = useState("");
+  const [text, setText] = useState("000000");
   const [textErr, setTextErr] = useState("");
-  const [button, setButton] = useState("");
+  const [button, setButton] = useState("D60B52");
   const [buttonErr, setButtonErr] = useState("");
   const [link, setLink] = useState("");
   const [showing, setShowing] = useState(false);
@@ -24,7 +24,33 @@ const Home = () => {
     document.documentElement.style.setProperty("--bg", "white");
     document.documentElement.style.setProperty("--text", "black");
     document.documentElement.style.setProperty("--button", "rgb(196, 44, 84)");
+    orgInput.current.focus();
   }, []);
+
+  useEffect(() => {
+    if (isValidUsername(organization)) {
+      orgInput.current.classList.remove("input-error");
+      setOrganizationErr("");
+    }
+  }, [organization]);
+  useEffect(() => {
+    if (isValidHexCode(bg)) {
+      bgInput.current.classList.remove("input-error");
+      setBgErr("");
+    }
+  }, [bg]);
+  useEffect(() => {
+    if (isValidHexCode(text)) {
+      textInput.current.classList.remove("input-error");
+      setTextErr("");
+    }
+  }, [text]);
+  useEffect(() => {
+    if (isValidHexCode(button)) {
+      buttonInput.current.classList.remove("input-error");
+      setButtonErr("");
+    }
+  }, [button]);
 
   function validate() {
     let valid = 0;
@@ -73,18 +99,19 @@ const Home = () => {
       setShowing(true);
     }
   }
+
   return (
     <main className="home">
       {showing && <PopUp link={link} setShowing={setShowing} />}
       <h1 className="site-title">Viewcy Embed Project</h1>
-      <p className="site-description gray">
+      <p className="gray" id="site-description">
         A free tool for creating a custom event listing page for your Viewcy
         organization in 60 seconds.
       </p>
 
       <label htmlFor="organization">
-        <p className="error">{organizationErr}</p>Your Viewcy organization
-        username
+        Your Viewcy organization username
+        <p className="error">{organizationErr}</p>
       </label>
       <input
         type="text"
@@ -95,10 +122,6 @@ const Home = () => {
         ref={orgInput}
       />
       <label htmlFor="bg">
-        <p className="error">
-          {bgErr}
-          {!!bgErr.length && googleHexLink()}
-        </p>
         Background color (hex code)
         <span className="gray label-line">
           Need help?{" "}
@@ -110,6 +133,7 @@ const Home = () => {
             Go here.
           </a>
         </span>
+        <p className="error">{bgErr}</p>
       </label>
       <input
         type="text"
@@ -120,11 +144,11 @@ const Home = () => {
         ref={bgInput}
       />
       <label htmlFor="text">
+        Text color (hex code)
         <p className="error">
           {textErr}
           {!!textErr.length && googleHexLink()}
         </p>
-        Text color (hex code)
       </label>
       <input
         type="text"
@@ -135,14 +159,14 @@ const Home = () => {
         ref={textInput}
       />
       <label htmlFor="button">
-        <p className="error">
-          {buttonErr}
-          {!!buttonErr.length && googleHexLink()}
-        </p>
         Button color (hex code)
         <span className="gray label-line">
           Choose a dark color suitable for white text.
         </span>
+        <p className="error">
+          {buttonErr}
+          {!!buttonErr.length && googleHexLink()}
+        </p>
       </label>
       <input
         type="text"

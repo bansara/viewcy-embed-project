@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { isValidHexCode } from "../utils/isHex";
 
@@ -7,23 +7,25 @@ import Card from "./card";
 
 const List = () => {
   const [data, setData] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
   const { username, bg, text, button } = useParams();
-
   useEffect(() => {
     const apiURL = `https://www.viewcy.com/api/o/${username}/courses`;
 
     async function getApiData() {
-      const { data } = await axios.get(apiURL);
-
-      setData(data.data);
+      axios
+        .get(apiURL)
+        .then(({ data }) => {
+          setData(data.data);
+          setIsLoaded(true);
+        })
+        .catch(() => setIsLoaded(true));
     }
 
     if (bg !== undefined && isValidHexCode(bg)) {
       let r = parseInt(bg.slice(0, 2), 16);
       let g = parseInt(bg.slice(2, 4), 16);
       let b = parseInt(bg.slice(4), 16);
-
-      console.log(r, g, b);
 
       document.documentElement.style.setProperty(
         "--bg",
@@ -55,6 +57,17 @@ const List = () => {
   return (
     <main>
       {!!data.length && data.map((obj) => <Card obj={obj} key={obj.id} />)}
+      {!data.length && isLoaded && (
+        <div>
+          <h1>
+            Sorry! Something went wrong. Please double check that your username
+            is valid!
+          </h1>
+          <Link to="/" style={{ color: "black" }}>
+            Back to home
+          </Link>
+        </div>
+      )}
     </main>
   );
 };

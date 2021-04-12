@@ -2,7 +2,6 @@ main.home {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   width: 370px;
   max-width: 95%;
   margin: 0 auto;
@@ -11,17 +10,23 @@ main.home {
 }
 
 .site-title {
+  font-family: "Averta Black";
   font-weight: 900;
   font-size: 1.75rem;
+  color: #252525;
+  margin: 2.5em 0 0.5em;
 }
 
-.site-description {
+#site-description {
+  font-family: "Averta Regular";
+  font-size: 16px;
   margin: 0 0 2rem;
   text-align: center;
 }
 
 .gray {
-  color: #777;
+  color: #555;
+  font-size: 14px;
 }
 
 .home label {
@@ -29,13 +34,17 @@ main.home {
   width: 100%;
   text-align: left;
   font-weight: bold;
+  margin-top: 2rem;
 }
 
 .home input {
   box-sizing: border-box;
   width: 100%;
   padding: 0.5rem;
-  margin: 1rem 0;
+  border-radius: 0.5rem;
+  border: 1px solid #d9dde1;
+  margin: 0.5rem 0 1rem;
+  font-size: 14px;
 }
 
 .home span.label-line {
@@ -50,7 +59,7 @@ main.home {
 .home button {
   width: 100%;
   padding: 1rem;
-  background-color: rgb(196, 44, 84);
+  background-color: var(--button);
   color: white;
   font-size: 1rem;
   font-weight: 600;
@@ -113,10 +122,10 @@ main.home {
 
 .error {
   color: rgb(196, 44, 84);
-  margin: 0;
-  font-size: 0.875rem;
+  margin: 0.5rem 0 0.25rem;
+  font-size: 0.75rem;
 }
-.input-error {
+input.input-error {
   border: 2px solid rgb(196, 44, 84);
 }
 

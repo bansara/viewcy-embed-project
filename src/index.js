@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import "./fonts/Averta Cyrillic Black.otf";
+import "./fonts/Averta Cyrillic SemiBold.otf";
 import "./fonts/Averta Cyrillic Regular.otf";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
