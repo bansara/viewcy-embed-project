@@ -10,7 +10,7 @@ const List = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const { username, bg, text, button } = useParams();
   useEffect(() => {
-    const apiURL = `https://www.viewcy.com/api/o/${username}/courses`;
+    const apiURL = `https://www.viewcy.com/api/o/${username.toLowerCase()}/courses`;
 
     async function getApiData() {
       axios

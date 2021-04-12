@@ -1,4 +1,4 @@
-import { useState, useRef, useLayoutEffect, useEffect } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
 import "./home.css";
 import { isValidHexCode, removePrefix, isValidUsername } from "../utils/isHex";
 import PopUp from "./popup";
@@ -26,31 +26,6 @@ const Home = () => {
     document.documentElement.style.setProperty("--button", "rgb(196, 44, 84)");
     orgInput.current.focus();
   }, []);
-
-  useEffect(() => {
-    if (isValidUsername(organization)) {
-      orgInput.current.classList.remove("input-error");
-      setOrganizationErr("");
-    }
-  }, [organization]);
-  useEffect(() => {
-    if (isValidHexCode(bg)) {
-      bgInput.current.classList.remove("input-error");
-      setBgErr("");
-    }
-  }, [bg]);
-  useEffect(() => {
-    if (isValidHexCode(text)) {
-      textInput.current.classList.remove("input-error");
-      setTextErr("");
-    }
-  }, [text]);
-  useEffect(() => {
-    if (isValidHexCode(button)) {
-      buttonInput.current.classList.remove("input-error");
-      setButtonErr("");
-    }
-  }, [button]);
 
   function validate() {
     let valid = 0;
