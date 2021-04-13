@@ -61,7 +61,7 @@ main.home {
   background-color: var(--button);
   color: white;
   font-size: 1rem;
-  font-weight: 600;
+  font-family: "Averta SemiBold";
   border: none;
   border-radius: 8px;
   margin: 2rem 0;

@@ -19,7 +19,6 @@
   width: 370px;
   box-sizing: border-box;
   max-width: 90%;
-  margin-top: -40%;
   padding: 1rem;
   border-radius: 1rem;
   background-color: white;
@@ -44,4 +43,8 @@
   align-self: flex-end;
   display: block;
   cursor: pointer;
+}
+
+button.visit {
+  font-family: "Averta SemiBold";
 }
