@@ -3,6 +3,7 @@ import "./home.css";
 import { isValidHexCode, removePrefix, isValidUsername } from "../utils/isHex";
 import PopUp from "./popup";
 import Gradients from "./gradients";
+import Footer from "./footer";
 
 const Home = () => {
   const [organization, setOrganization] = useState("");
@@ -155,24 +156,7 @@ const Home = () => {
       <button className="generate" onClick={validate}>
         Generate page
       </button>
-      <div className="info">
-        <p className="bold">Looking for more options?</p>
-        <ul>
-          <li>Custom Font</li>
-          <li>Separate sections for categories or tags</li>
-          <li>Custom header with your logo</li>
-        </ul>
-        <p>With Viewcy's open platform, anything is possible</p>
-        <p>
-          <a href="https://jalopytheatre.netlify.app">See this example</a> of a
-          custom integration.
-        </p>
-        <p>
-          To connect with a verified Viewcy expert, to start your custom
-          integration project, contact{" "}
-          <a href="mailto:ehren@viewcy.com">ehren@viewcy.com</a>.
-        </p>
-      </div>
+      <Footer />
       <Gradients />
     </main>
   );
@@ -195,22 +179,3 @@ function googleHexLink() {
     </span>
   );
 }
-
-// function HomeInput({ reff, value, setValue, errMsg, id, children }) {
-//   return (
-//     <>
-//       <label htmlFor={id}>
-//         {children}
-//         <p className="error">{errMsg}</p>
-//       </label>
-//       <input
-//         type="text"
-//         name={id}
-//         value={value}
-//         placeholder="#"
-//         onChange={(e) => setValue(e.target.value)}
-//         ref={reff}
-//       />
-//     </>
-//   );
-// }
