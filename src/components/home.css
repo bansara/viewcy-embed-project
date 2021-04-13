@@ -79,10 +79,10 @@ main.home {
 
 .color-splash {
   position: absolute;
-
   border-radius: 50%;
   background-color: transparent;
   z-index: -1;
+  will-change: filter;
   filter: blur(5rem);
 }
 

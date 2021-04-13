@@ -2,6 +2,7 @@ import { useState, useRef, useLayoutEffect } from "react";
 import "./home.css";
 import { isValidHexCode, removePrefix, isValidUsername } from "../utils/isHex";
 import PopUp from "./popup";
+import Gradients from "./gradients";
 
 const Home = () => {
   const [organization, setOrganization] = useState("");
@@ -25,6 +26,7 @@ const Home = () => {
     document.documentElement.style.setProperty("--text", "black");
     document.documentElement.style.setProperty("--button", "rgb(196, 44, 84)");
     orgInput.current.focus();
+    console.log("layout effect");
   }, []);
 
   function validate() {
@@ -83,7 +85,6 @@ const Home = () => {
         A free tool for creating a custom event listing page for your Viewcy
         organization in 60 seconds.
       </p>
-
       <label htmlFor="organization">
         Your Viewcy organization username
         <p className="error">{organizationErr}</p>
@@ -172,10 +173,7 @@ const Home = () => {
           <a href="mailto:ehren@viewcy.com">ehren@viewcy.com</a>.
         </p>
       </div>
-      <div className="color-splash pink" id="top"></div>
-      <div className="color-splash pink" id="far-left"></div>
-      <div className="color-splash purple" id="left"></div>
-      <div className="color-splash purple" id="bottom"></div>
+      <Gradients />
     </main>
   );
 };
@@ -197,3 +195,22 @@ function googleHexLink() {
     </span>
   );
 }
+
+// function HomeInput({ reff, value, setValue, errMsg, id, children }) {
+//   return (
+//     <>
+//       <label htmlFor={id}>
+//         {children}
+//         <p className="error">{errMsg}</p>
+//       </label>
+//       <input
+//         type="text"
+//         name={id}
+//         value={value}
+//         placeholder="#"
+//         onChange={(e) => setValue(e.target.value)}
+//         ref={reff}
+//       />
+//     </>
+//   );
+// }
