@@ -2,7 +2,7 @@ import "./card.css";
 
 const Card = ({ obj }) => {
   function cleanHTML(string) {
-    return string.replace(/<[^>]+>/g, " ");
+    return string.replace(/<[^>]+>/g, " ").replace("&nbsp;", " ");
   }
 
   function formatDate(obj) {
