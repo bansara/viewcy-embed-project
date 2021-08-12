@@ -30,11 +30,11 @@ const Card = ({ obj }) => {
 
   return (
     <section className="card">
-      <a href={obj.url}>
+      <a href={obj.url} target="_blank" rel="noopener noreferrer">
         <img src={obj.featured_image} alt="" />
       </a>
       <div className="info">
-        <a href={obj.url}>
+        <a href={obj.url} target="_blank" rel="noopener noreferrer">
           <h1>{obj.name}</h1>
         </a>
         <div className="details">
@@ -45,7 +45,12 @@ const Card = ({ obj }) => {
           </div>
           <div className="date-tickets">
             {!!obj.events.length && formatDate(obj)}
-            <a href={obj.url} className="button-link">
+            <a
+              href={obj.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button-link"
+            >
               <button className="tickets">Tickets</button>
             </a>
           </div>
