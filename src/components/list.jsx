@@ -59,10 +59,7 @@ const List = () => {
       {!!data.length && data.map((obj) => <Card obj={obj} key={obj.id} />)}
       {!data.length && isLoaded && (
         <div>
-          <h1>
-            Sorry! Something went wrong. Please double check that your username
-            is valid!
-          </h1>
+          <h1>There are no events to display at this time.</h1>
           <Link to="/" style={{ color: "black" }}>
             Back to home
           </Link>
