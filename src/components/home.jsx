@@ -160,10 +160,10 @@ const Home = () => {
         ref={buttonInput}
       />
       <button className="generate" onClick={() => validate(false)}>
-        Generate List page
+        Generate List Page
       </button>
       <button className="calendar-button" onClick={() => validate(true)}>
-        Generate Calendar page
+        Generate Calendar Page
       </button>
       <Footer />
       <Gradients />

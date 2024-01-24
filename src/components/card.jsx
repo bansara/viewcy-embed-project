@@ -41,7 +41,7 @@ const Card = ({ obj }) => {
               rel="noopener noreferrer"
               className="button-link"
             >
-              <button className="tickets">Tickets</button>
+              <button className="tickets">Get Tickets</button>
             </a>
           </div>
         </div>
