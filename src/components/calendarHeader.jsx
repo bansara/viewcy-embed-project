@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 
-import { useCalendar } from "./calendar";
+// import { useCalendar } from "./calendar";
 
 import {
   structureDataByMonth,
@@ -12,12 +12,10 @@ import {
 const CalendarHeader = ({ data }) => {
   const [structuredData, setStructuredData] = useState();
   const [selectedMonthEvents, setSelectedMonthEvents] = useState({});
-  const [selectedDate, setSelectedDate] = useState();
-  const { selectedMonth, setSelectedMonth, selectedDay, setSelectedDay } =
-    useCalendar();
+  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedMonth, setSelectedMonth] = useState("");
 
   function handleDateSelected(day) {
-    setSelectedDay(day.date);
     setSelectedDate(day);
   }
 
@@ -88,7 +86,8 @@ const CalendarHeader = ({ data }) => {
           selectedMonthEvents.map((day) => (
             <button
               className={`nav-button ${
-                selectedDay == day.date && selectedMonth == selectedDate?.month
+                selectedDate?.date === day.date &&
+                selectedMonth === selectedDate?.month
                   ? "selected-button"
                   : ""
               }`}

@@ -13,28 +13,9 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
-const CalendarContext = React.createContext();
-
-export function useCalendar() {
-  const context = React.useContext(CalendarContext);
-  if (!context) {
-    throw new Error("useCalendar must be used within a CalendarProvider");
-  }
-  return context;
-}
-
 const Calendar = () => {
   const [data, setData] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [selectedDay, setSelectedDay] = useState("");
-  const [selectedMonth, setSelectedMonth] = useState("");
-
-  const value = {
-    selectedDay,
-    setSelectedDay,
-    selectedMonth,
-    setSelectedMonth,
-  };
 
   const { username } = useParams();
 
@@ -99,10 +80,10 @@ const Calendar = () => {
   }, [username, bg, text, button]);
 
   return (
-    <CalendarContext.Provider value={value}>
+    <>
       {!!data.length && <CalendarHeader data={data} />}
       {!!data.length && <CardList cards={data} />}
-    </CalendarContext.Provider>
+    </>
   );
 };
 
