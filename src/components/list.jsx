@@ -3,7 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { isValidHexCode } from "../utils/isHex";
 
-import Card from "./card";
+import LoadingSpinner from "./loading";
+import CardList from "./cardList";
 
 const List = () => {
   const [data, setData] = useState([]);
@@ -18,7 +19,7 @@ const List = () => {
         .then(({ data }) => {
           setData(data.data);
           setIsLoaded(true);
-          console.log(data);
+          // console.log(data);
         })
         .catch(() => setIsLoaded(true));
     }
@@ -57,14 +58,20 @@ const List = () => {
 
   return (
     <main>
-      {!!data.length && data.map((obj) => <Card obj={obj} key={obj.id} />)}
-      {!data.length && isLoaded && (
+      {isLoaded ? (
         <div>
-          <h1>There are no events to display at this time.</h1>
-          <Link to="/" style={{ color: "black" }}>
-            Back to home
-          </Link>
+          {!!data.length && <CardList cards={data} />}
+          {!data.length && isLoaded && (
+            <div>
+              <h1>There are no events to display at this time.</h1>
+              <Link to="/" style={{ color: "black" }}>
+                Back to home
+              </Link>
+            </div>
+          )}
         </div>
+      ) : (
+        <LoadingSpinner />
       )}
     </main>
   );

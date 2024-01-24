@@ -8,6 +8,7 @@ import { isLightMode } from "./calendarFunctions";
 
 import "./calendar.css";
 import CalendarHeader from "./calendarHeader";
+import LoadingSpinner from "./loading";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -32,6 +33,8 @@ const Calendar = () => {
         .get(apiURL)
         .then(({ data }) => {
           setData(data.data);
+          setIsLoaded(true);
+          // console.log(data.data);
         })
         .catch(() => setIsLoaded(true));
     }
@@ -80,10 +83,16 @@ const Calendar = () => {
   }, [username, bg, text, button]);
 
   return (
-    <>
-      {!!data.length && <CalendarHeader data={data} />}
-      {!!data.length && <CardList cards={data} />}
-    </>
+    <div className="calendar-wrapper">
+      {isLoaded ? (
+        <div className="calendar-container">
+          {!!data.length && <CalendarHeader data={data} />}
+          {!!data.length && <CardList cards={data} />}
+        </div>
+      ) : (
+        <LoadingSpinner />
+      )}
+    </div>
   );
 };
 

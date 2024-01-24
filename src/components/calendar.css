@@ -1,12 +1,23 @@
+.calendar-wrapper {
+  min-height: 100vh;
+  width: 100vw;
+}
+.calendar-container {
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
 #calendar-header {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
+  /* left: 0;
+  right: 0; */
   background-color: var(--bg);
   z-index: 100;
   border-bottom: 2px solid var(--buttonShade);
-  padding: 1rem 0;
+  padding: 1rem 2.5vw;
+  width: 100%;
+  max-width: 1280px;
 }
 #back {
   display: flex;
@@ -28,6 +39,10 @@
   background-color: var(--buttonHover);
   color: white;
   stroke: white;
+}
+
+.nav-button span.date {
+  display: block;
 }
 
 .selected-button,

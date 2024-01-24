@@ -99,3 +99,52 @@ export function isLightMode(hex1, hex2) {
 
   return luminance1 > luminance2;
 }
+
+export function debounce(func, wait) {
+  let timeout;
+  return function (...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func.apply(this, args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+/**
+ * scrolling code for CaledarHeader - works, but buggy
+ */
+// useEffect(() => {
+//   const handleScroll = () => {
+//     const header = document.getElementById("calendar-header");
+//     const headerHeight = header ? header.offsetHeight : 0;
+//     const cards = document.querySelectorAll(".card");
+//     cards.forEach((card) => {
+//       const rect = card.getBoundingClientRect();
+
+//       const isVisible =
+//         rect.top >= headerHeight &&
+//         rect.bottom <= headerHeight + rect.height * 2 + 24;
+
+//       if (isVisible) {
+//         const { month } = card.dataset;
+//         // This card is fully visible below the header - update the state accordingly
+//         const id = +card.id;
+//         const monthlyEvents = getEventsByMonth(month, structuredData);
+//         const eventDateObj = monthlyEvents.find((obj) => obj.id === id);
+//         console.log(eventDateObj);
+//         if (eventDateObj) {
+//           setSelectedDate(eventDateObj);
+//           setSelectedMonth(month);
+//         }
+//       }
+//     });
+//   };
+//   const debouncedScrollHandler = debounce(handleScroll, 100);
+
+//   window.addEventListener("scroll", debouncedScrollHandler);
+
+//   return () => {
+//     window.removeEventListener("scroll", debouncedScrollHandler);
+//   };
+// }, [selectedMonth, structuredData]);

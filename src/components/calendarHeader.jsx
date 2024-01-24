@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 
-// import { useCalendar } from "./calendar";
-
 import {
   structureDataByMonth,
   getEventsByMonth,
   getUniqueEventDays,
+  debounce,
 } from "./calendarFunctions";
 
 const CalendarHeader = ({ data }) => {
@@ -30,7 +29,9 @@ const CalendarHeader = ({ data }) => {
     if (structuredData) {
       const monthlyEvents = getEventsByMonth(selectedMonth, structuredData);
       const uniqueEventDays = getUniqueEventDays(monthlyEvents);
+      console.log(structuredData);
       setSelectedMonthEvents(uniqueEventDays);
+      setSelectedDate(uniqueEventDays[0]);
     }
   }, [selectedMonth, structuredData]);
 
@@ -94,7 +95,8 @@ const CalendarHeader = ({ data }) => {
               key={day.date}
               onClick={() => handleDateSelected(day)}
             >
-              {day.dayOfWeek} {day.date}
+              <span className="date">{day.dayOfWeek} </span>
+              <span className="date">{day.date}</span>
             </button>
           ))}
       </div>
