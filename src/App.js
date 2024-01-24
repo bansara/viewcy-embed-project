@@ -8,12 +8,14 @@ import "./App.css";
 
 import List from "./components/list";
 import Home from "./components/home";
+import Calendar from "./components/calendar";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Switch>
+          <Route exact path="/calendar/:username" component={Calendar} />
           <Route exact path="/:username/" component={List} />
           <Route exact path="/:username/:bg" component={List} />
           <Route exact path="/:username/:bg/:text" component={List} />

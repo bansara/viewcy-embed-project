@@ -25,6 +25,7 @@ section.card a:hover {
 .card img {
   width: 767px;
   max-width: 100%;
+  border-radius: 1rem;
 }
 
 .card h1 {
@@ -35,22 +36,32 @@ section.card a:hover {
 p.date {
   margin: 1.5rem 0;
   font-weight: 700;
+  display: flex;
+}
+
+p.date span {
+  display: flex;
+  align-items: center;
+}
+
+p.date span:first-of-type {
+  margin-right: 1rem;
+}
+
+p.date span svg {
+  margin-right: 0.5rem;
 }
 
 p.description {
   overflow: hidden;
-  height: 3.75rem;
+  min-height: 3.75rem;
   position: relative;
   opacity: 0.75;
+  margin-top: 0.25rem;
 }
-p.description::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2rem;
-  background-image: linear-gradient(to bottom, var(--transBg), var(--bg));
+
+p.description a.read-more {
+  text-decoration: underline;
 }
 
 a.button-link {
@@ -87,9 +98,9 @@ button.tickets {
     margin: 0 0 0 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     box-sizing: border-box;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    gap: 0.5rem;
   }
 
   .card h1 {
@@ -98,17 +109,13 @@ button.tickets {
   }
 
   p.date {
-    margin: 0.5rem 0;
-    align-self: flex-end;
-    text-align: right;
+    margin: 0;
   }
 
-  p.date span {
-    display: block;
-  }
   button.tickets {
     width: 150px;
   }
+
   a.button-link {
     align-self: flex-end;
   }
@@ -120,9 +127,19 @@ button.tickets {
   .title-description {
     padding-right: 2rem;
   }
-  .date-tickets {
-    display: flex;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  .details {
     flex-direction: column;
-    justify-content: flex-end;
+  }
+  button.tickets {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  p.date {
+    font-size: 14px;
   }
 }

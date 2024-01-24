@@ -18,6 +18,7 @@ const List = () => {
         .then(({ data }) => {
           setData(data.data);
           setIsLoaded(true);
+          console.log(data);
         })
         .catch(() => setIsLoaded(true));
     }

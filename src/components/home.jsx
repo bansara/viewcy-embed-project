@@ -30,7 +30,7 @@ const Home = () => {
     console.log("layout effect");
   }, []);
 
-  function validate() {
+  function validate(isCalendar) {
     let valid = 0;
 
     let bgColor = removePrefix(bg);
@@ -71,9 +71,15 @@ const Home = () => {
     }
 
     if (valid === 4) {
-      setLink(
-        `https://viewcyembed.com/${organization}/${bgColor}/${textColor}/${buttonColor}`
-      );
+      if (isCalendar) {
+        setLink(
+          `https://viewcyembed.com/calendar/${organization}?bg=${bgColor}&text=${textColor}&button=${buttonColor}`
+        );
+      } else {
+        setLink(
+          `https://viewcyembed.com/${organization}/${bgColor}/${textColor}/${buttonColor}`
+        );
+      }
       setShowing(true);
     }
   }
@@ -153,8 +159,11 @@ const Home = () => {
         onChange={(e) => setButton(e.target.value)}
         ref={buttonInput}
       />
-      <button className="generate" onClick={validate}>
-        Generate page
+      <button className="generate" onClick={() => validate(false)}>
+        Generate List page
+      </button>
+      <button className="calendar-button" onClick={() => validate(true)}>
+        Generate Calendar page
       </button>
       <Footer />
       <Gradients />

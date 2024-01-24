@@ -1,35 +1,21 @@
+import {
+  formatDate,
+  formatParagraph,
+  cleanHTML,
+  getEventMonth,
+  getEventDate,
+} from "../utils/formatText";
 import "./card.css";
 
 const Card = ({ obj }) => {
-  function cleanHTML(string) {
-    return string.replace(/<[^>]+>/g, " ").replace("&nbsp;", " ");
-  }
-
-  function formatDate(obj) {
-    if (!obj.events.length) return null;
-    const startDate = new Date(obj.events[0].starts_at);
-    const date = startDate.toDateString();
-    const startTime = startDate.getHours();
-    const startMinutes = obj.events[0].starts_at.split("T")[1].slice(2, 5);
-
-    const endDate = new Date(obj.events[0].ends_at);
-    const endTime = endDate.getHours();
-    const endMinutes = obj.events[0].ends_at.split("T")[1].slice(2, 5);
-
-    const timeString = `${startTime % 12}${startMinutes}${
-      startTime < 12 ? "AM" : "PM"
-    } - ${endTime % 12}${endMinutes}${endTime < 12 ? "AM" : "PM"}`;
-
-    return (
-      <p className="date">
-        <span>{`${date.slice(0, 3)}, ${date.slice(3)} `}</span>
-        <span>{`${timeString}`}</span>
-      </p>
-    );
-  }
-
+  console.log("render");
   return (
-    <section className="card">
+    <section
+      className="card"
+      id={obj.id}
+      data-month={getEventMonth(obj.events[0])}
+      data-date={getEventDate(obj.events[0])}
+    >
       <a href={obj.url} target="_blank" rel="noopener noreferrer">
         <img src={obj.featured_image} alt="" />
       </a>
@@ -37,14 +23,19 @@ const Card = ({ obj }) => {
         <a href={obj.url} target="_blank" rel="noopener noreferrer">
           <h1>{obj.name}</h1>
         </a>
+        {!!obj.events.length && formatDate(obj)}
         <div className="details">
           <div className="title-description">
             {!!obj.description.length && (
-              <p className="description">{cleanHTML(obj.description)}</p>
+              <p className="description">
+                {formatParagraph(cleanHTML(obj.description))}
+                <a className="read-more" href={obj.url}>
+                  Read More
+                </a>
+              </p>
             )}
           </div>
           <div className="date-tickets">
-            {!!obj.events.length && formatDate(obj)}
             <a
               href={obj.url}
               target="_blank"

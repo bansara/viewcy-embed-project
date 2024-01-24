@@ -128,6 +128,11 @@ input.input-error {
   border: 2px solid rgb(196, 44, 84);
 }
 
+button.calendar-button {
+  background-color: rgb(102, 35, 131);
+  margin-top: 0;
+}
+
 @media (min-width: 600px) {
   .site-title {
     font-size: 2rem;
