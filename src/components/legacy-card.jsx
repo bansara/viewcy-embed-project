@@ -37,7 +37,7 @@ const LegacyCard = ({ obj }) => {
         <a href={obj.url} target="_blank" rel="noopener noreferrer">
           <h1>{obj.name}</h1>
         </a>
-        <div className="details">
+        <div className="legacy details">
           <div className="title-description">
             {!!obj.description.length && (
               <p className="description">{cleanHTML(obj.description)}</p>
@@ -51,7 +51,7 @@ const LegacyCard = ({ obj }) => {
               rel="noopener noreferrer"
               className="button-link"
             >
-              <button className="tickets">Tickets</button>
+              <button className="legacy tickets">Tickets</button>
             </a>
           </div>
         </div>

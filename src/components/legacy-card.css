@@ -106,14 +106,14 @@ button.tickets {
   .legacy-card p.legacy-date span {
     display: block;
   }
-  button.tickets {
+  button.tickets.legacy {
     width: 150px;
   }
   a.button-link {
     align-self: flex-end;
   }
 
-  .details {
+  .details.legacy {
     display: flex;
     justify-content: space-between;
   }
