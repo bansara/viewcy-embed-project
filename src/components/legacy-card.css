@@ -4,7 +4,7 @@ main {
   margin: 0 auto;
 }
 
-section.card {
+section.legacy-card {
   max-width: 95%;
   width: 767px;
   margin: 4rem auto;
@@ -12,27 +12,27 @@ section.card {
   color: var(--text);
 }
 
-section.card a,
-section.card a:visited {
+section.legacy-card a,
+section.legacy-card a:visited {
   color: var(--text);
   text-decoration: none;
 }
 
-section.card a:hover {
+section.legacy-card a:hover {
   text-decoration: underline;
 }
 
-.card img {
+.legacy-card img {
   width: 767px;
   max-width: 100%;
 }
 
-.card h1 {
+.legacy-card h1 {
   font-size: 19px;
   margin: 10px 0 3px;
 }
 
-p.date {
+.legacy-card p.legacy-date {
   margin: 1.5rem 0;
   font-weight: 700;
 }
@@ -72,17 +72,17 @@ button.tickets {
 }
 
 @media (min-width: 768px) {
-  section.card {
+  section.legacy-card {
     display: flex;
     justify-content: space-between;
     width: 100%;
   }
-  .card img {
+  .legacy-card img {
     width: 320px;
     max-width: 320px;
   }
 
-  .card .info {
+  .legacy-card .info {
     flex: 1;
     margin: 0 0 0 2rem;
     display: flex;
@@ -92,18 +92,18 @@ button.tickets {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 
-  .card h1 {
+  .legacy-card h1 {
     font-size: 1.5rem;
     font-weight: 700;
   }
 
-  p.date {
+  .legacy-card p.legacy-date {
     margin: 0.5rem 0;
     align-self: flex-end;
     text-align: right;
   }
 
-  p.date span {
+  .legacy-card p.legacy-date span {
     display: block;
   }
   button.tickets {

@@ -4,7 +4,7 @@ import axios from "axios";
 import { isValidHexCode } from "../utils/isHex";
 
 import LoadingSpinner from "./loading";
-import CardList from "./cardList";
+import LegacyCardList from "./legacyCardList";
 
 const List = () => {
   const [data, setData] = useState([]);
@@ -60,7 +60,7 @@ const List = () => {
     <main>
       {isLoaded ? (
         <div>
-          {!!data.length && <CardList cards={data} />}
+          {!!data.length && <LegacyCardList cards={data} />}
           {!data.length && isLoaded && (
             <div>
               <h1>There are no events to display at this time.</h1>

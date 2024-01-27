@@ -1,6 +1,6 @@
-import "./card.css";
+import "./legacy-card.css";
 
-const Card = ({ obj }) => {
+const LegacyCard = ({ obj }) => {
   function cleanHTML(string) {
     return string.replace(/<[^>]+>/g, " ").replace("&nbsp;", " ");
   }
@@ -21,7 +21,7 @@ const Card = ({ obj }) => {
     } - ${endTime % 12}${endMinutes}${endTime < 12 ? "AM" : "PM"}`;
 
     return (
-      <p className="date">
+      <p className="legacy-date">
         <span>{`${date.slice(0, 3)}, ${date.slice(3)} `}</span>
         <span>{`${timeString}`}</span>
       </p>
@@ -29,7 +29,7 @@ const Card = ({ obj }) => {
   }
 
   return (
-    <section className="card">
+    <section className="legacy-card">
       <a href={obj.url} target="_blank" rel="noopener noreferrer">
         <img src={obj.featured_image} alt="" />
       </a>
@@ -60,7 +60,7 @@ const Card = ({ obj }) => {
   );
 };
 
-export default Card;
+export default LegacyCard;
 
 /**
  * {

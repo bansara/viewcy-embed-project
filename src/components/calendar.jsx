@@ -88,6 +88,7 @@ const Calendar = () => {
         <div className="calendar-container">
           {!!data.length && <CalendarHeader data={data} />}
           {!!data.length && <CardList cards={data} />}
+          {!data.length && <h1>There are no events to display</h1>}
         </div>
       ) : (
         <LoadingSpinner />
