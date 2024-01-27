@@ -27,7 +27,6 @@ const Home = () => {
     document.documentElement.style.setProperty("--text", "black");
     document.documentElement.style.setProperty("--button", "rgb(196, 44, 84)");
     orgInput.current.focus();
-    console.log("layout effect");
   }, []);
 
   function validate(isCalendar) {

@@ -5,7 +5,6 @@ import {
   structureDataByMonth,
   getEventsByMonth,
   getUniqueEventDays,
-  debounce,
 } from "./calendarFunctions";
 
 const CalendarHeader = ({ data }) => {
@@ -29,7 +28,6 @@ const CalendarHeader = ({ data }) => {
     if (structuredData) {
       const monthlyEvents = getEventsByMonth(selectedMonth, structuredData);
       const uniqueEventDays = getUniqueEventDays(monthlyEvents);
-      console.log(structuredData);
       setSelectedMonthEvents(uniqueEventDays);
       setSelectedDate(uniqueEventDays[0]);
     }
