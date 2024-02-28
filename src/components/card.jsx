@@ -8,7 +8,6 @@ import {
 import "./card.css";
 
 const Card = ({ obj }) => {
-  console.log("render");
   return (
     <section
       className="card"

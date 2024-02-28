@@ -37,13 +37,13 @@ section.legacy-card a:hover {
   font-weight: 700;
 }
 
-p.description {
+.legacy p.description {
   overflow: hidden;
   height: 3.75rem;
   position: relative;
   opacity: 0.75;
 }
-p.description::after {
+.legacy p.description::after {
   content: "";
   position: absolute;
   bottom: 0;
