@@ -28,7 +28,12 @@ const Card = ({ obj }) => {
             {!!obj.description.length && (
               <p className="description">
                 {formatParagraph(cleanHTML(obj.description))}
-                <a className="read-more" href={obj.url}>
+                <a
+                  className="read-more"
+                  href={obj.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Read More
                 </a>
               </p>

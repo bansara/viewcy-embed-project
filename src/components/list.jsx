@@ -51,6 +51,9 @@ const List = () => {
         "--button",
         `#${button.toLowerCase()}`
       );
+      document
+        .querySelector('meta[name="theme-color"]')
+        .setAttribute("content", `#${button.toLowerCase()}`);
     }
 
     getApiData();

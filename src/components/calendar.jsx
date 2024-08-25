@@ -70,6 +70,9 @@ const Calendar = () => {
         "--buttonHover",
         `#${button.toLowerCase()}aa`
       );
+      document
+        .querySelector('meta[name="theme-color"]')
+        .setAttribute("content", `#${button.toLowerCase()}`);
     }
 
     if (bg !== undefined && text !== undefined) {

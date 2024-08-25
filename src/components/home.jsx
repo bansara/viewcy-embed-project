@@ -26,6 +26,9 @@ const Home = () => {
     document.documentElement.style.setProperty("--bg", "white");
     document.documentElement.style.setProperty("--text", "black");
     document.documentElement.style.setProperty("--button", "rgb(196, 44, 84)");
+    document
+      .querySelector('meta[name="theme-color"]')
+      .setAttribute("content", `#ffffff`);
     orgInput.current.focus();
   }, []);
 
