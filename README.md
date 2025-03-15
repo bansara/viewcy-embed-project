@@ -15,7 +15,12 @@ A custom embeddable event listing solution built for [Viewcy](https://viewcy.com
 
 A sleek and modern event list that allows users to explore upcoming performances and buy tickets easily.
 
+#### Calendar List Page
+
 ![Calendar List Page](./public/images/calendar-page.png)
+
+#### Event List Page
+
 ![Event List Page](./public/images/list-page.png)
 
 ### Customization Panel
@@ -26,4 +31,4 @@ Admins can configure their event embeds with a simple UI, adjusting colors and s
 
 ## Deployment
 
-The project is hosted at **[viewcyembed.com](https://viewcyembed.com)** and is actively used by Viewcy for event embedding.
+The project is hosted at **[viewcyembed.com](https://viewcyembed.com)** and is actively used by Viewcy users for event embedding.
